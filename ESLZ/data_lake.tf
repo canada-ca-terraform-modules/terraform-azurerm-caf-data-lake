@@ -6,7 +6,7 @@ variable "data_lakes" {
 
 module "data_lakes" {
     for_each = var.data_lakes
-    source = "/home/ken/terraform-azurerm-caf-data-lake"
+    source = "github.com/canada-ca-terraform-modules/terraform-azurerm-caf-data-lake?ref=1.0.0"
     location= var.location
     env = var.env
     group = var.group
