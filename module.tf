@@ -10,6 +10,12 @@ module "dlsa" {
   tags = var.tags
 }
 
+resource "time_sleep" "wait_2_minute" {
+  depends_on = [module.dlsa]
+
+  create_duration = "2m"
+}
+
 # Create File Systems for each Data Lake Storage Account
 resource "azurerm_storage_data_lake_gen2_filesystem" "filesystem" {
   for_each = var.data_lake.storage_data_lake_gen2_filesystems
@@ -30,6 +36,7 @@ resource "azurerm_storage_data_lake_gen2_filesystem" "filesystem" {
 
     }
   }
+  depends_on = [ time_sleep.wait_2_minute ]
 }
 
 # Create Paths within the File Systems for each Data Lake
@@ -71,6 +78,8 @@ resource "azurerm_storage_data_lake_gen2_path" "paths" {
 
     }
   }
+
+  depends_on = [ azurerm_storage_data_lake_gen2_filesystem.filesystem ]
 }
 
 
