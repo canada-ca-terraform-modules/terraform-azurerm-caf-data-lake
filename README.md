@@ -15,7 +15,7 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_dlsa"></a> [dlsa](#module\_dlsa) | github.com/canada-ca-terraform-modules/terraform-azurerm-caf-storage_accountV2.git | v1.0.3 |
+| <a name="module_dlsa"></a> [dlsa](#module\_dlsa) | github.com/canada-ca-terraform-modules/terraform-azurerm-caf-storage_accountV2.git | v1.1.0 |
 
 ## Resources
 
