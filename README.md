@@ -15,8 +15,8 @@ Manages a Data Lake Gen2 (ADLS Gen2) storage account with file systems and paths
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 4.66.0 |
-| <a name="provider_time"></a> [time](#provider\_time) | 0.13.1 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 4.0 |
+| <a name="provider_time"></a> [time](#provider\_time) | ~> 0.0 |
 
 ## Modules
 
