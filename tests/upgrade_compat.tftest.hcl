@@ -45,11 +45,16 @@ run "baseline_plan" {
 
   assert {
     condition     = azurerm_storage_data_lake_gen2_filesystem.filesystem["fs1"].name == "fs1"
-    error_message = "Baseline plan: filesystem name must be 'fs1'"
+    error_message = "Baseline plan: filesystem address must be 'azurerm_storage_data_lake_gen2_filesystem.filesystem[\"fs1\"]'"
+  }
+
+  assert {
+    condition     = contains(keys(azurerm_storage_data_lake_gen2_path.paths), "fs1-path1")
+    error_message = "Baseline plan: path address must be 'azurerm_storage_data_lake_gen2_path.paths[\"fs1-path1\"]'"
   }
 }
 
-# Step 2: plan with new optional args added — resource addresses must not change
+# Step 2: plan with new optional args — resource addresses must not change
 run "upgrade_plan_no_replacement" {
   command = plan
 
@@ -60,14 +65,19 @@ run "upgrade_plan_no_replacement" {
         account_tier             = "Standard"
         account_replication_type = "GRS"
         is_hns_enabled           = true
-        # new optional arg — must not trigger replacement
-        default_to_oauth_authentication = false
       }
       storage_data_lake_gen2_filesystems = {
         fs1 = {
+          # new optional args added — must not change resource address or force replacement
+          default_encryption_scope = null
+          properties               = null
+          owner                    = null
+          group                    = null
           storage_data_lake_gen2_path = {
             path1 = {
-              name = "data"
+              name  = "data"
+              owner = null
+              group = null
             }
           }
         }
@@ -77,6 +87,11 @@ run "upgrade_plan_no_replacement" {
 
   assert {
     condition     = azurerm_storage_data_lake_gen2_filesystem.filesystem["fs1"].name == "fs1"
-    error_message = "Upgrade plan: filesystem address must not have changed"
+    error_message = "Upgrade plan: filesystem address must not change — a change here forces resource replacement"
+  }
+
+  assert {
+    condition     = contains(keys(azurerm_storage_data_lake_gen2_path.paths), "fs1-path1")
+    error_message = "Upgrade plan: path address must not change — a change here forces resource replacement"
   }
 }
