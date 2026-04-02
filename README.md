@@ -1,15 +1,22 @@
 # terraform-azurerm-caf-data-lake
+
+Manages a Data Lake Gen2 (ADLS Gen2) storage account with file systems and paths, backed by Azure Storage Account V2.
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 4.0 |
+| <a name="requirement_time"></a> [time](#requirement\_time) | ~> 0.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
-| <a name="provider_time"></a> [time](#provider\_time) | n/a |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 4.66.0 |
+| <a name="provider_time"></a> [time](#provider\_time) | 0.13.1 |
 
 ## Modules
 
