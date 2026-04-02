@@ -36,7 +36,7 @@ Manages a Data Lake Gen2 (ADLS Gen2) storage account with file systems and paths
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_data_lake"></a> [data\_lake](#input\_data\_lake) | (Required) Cluster configuration for the HA VMs. | `any` | `null` | no |
+| <a name="input_data_lake"></a> [data\_lake](#input\_data\_lake) | (Required) Data Lake Gen2 configuration including storage account and filesystem definitions. | `any` | `null` | no |
 | <a name="input_env"></a> [env](#input\_env) | (Required) 4 character string defining the environment name prefix for the VM | `string` | `"dev"` | no |
 | <a name="input_group"></a> [group](#input\_group) | (Required) Character string defining the group for the target subscription | `string` | `"test"` | no |
 | <a name="input_location"></a> [location](#input\_location) | Azure location for the VM | `string` | `"canadacentral"` | no |
