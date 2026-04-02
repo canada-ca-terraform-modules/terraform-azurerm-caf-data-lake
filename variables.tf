@@ -40,7 +40,7 @@ variable "userDefinedString" {
 
 
 variable "data_lake" {
-  description = "(Required) Cluster configuration for the HA VMs."
+  description = "(Required) Data Lake Gen2 configuration including storage account and filesystem definitions."
   type        = any
   default     = null
 }
