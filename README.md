@@ -1,15 +1,22 @@
 # terraform-azurerm-caf-data-lake
+
+Manages a Data Lake Gen2 (ADLS Gen2) storage account with file systems and paths, backed by Azure Storage Account V2.
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 4.0 |
+| <a name="requirement_time"></a> [time](#requirement\_time) | ~> 0.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
-| <a name="provider_time"></a> [time](#provider\_time) | n/a |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 4.0 |
+| <a name="provider_time"></a> [time](#provider\_time) | ~> 0.0 |
 
 ## Modules
 
@@ -29,7 +36,7 @@ No requirements.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_data_lake"></a> [data\_lake](#input\_data\_lake) | (Required) Cluster configuration for the HA VMs. | `any` | `null` | no |
+| <a name="input_data_lake"></a> [data\_lake](#input\_data\_lake) | (Required) Data Lake Gen2 configuration including storage account and filesystem definitions. | `any` | `null` | no |
 | <a name="input_env"></a> [env](#input\_env) | (Required) 4 character string defining the environment name prefix for the VM | `string` | `"dev"` | no |
 | <a name="input_group"></a> [group](#input\_group) | (Required) Character string defining the group for the target subscription | `string` | `"test"` | no |
 | <a name="input_location"></a> [location](#input\_location) | Azure location for the VM | `string` | `"canadacentral"` | no |
